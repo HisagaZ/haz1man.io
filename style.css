@@ -24,11 +24,12 @@ padding: 0.5rem 2rem;
 border-radius: 3rem;
 z-index: 1000;
 }
+
 .logo{
     color: white;
     font-size: 1rem;
     font-weight: 600;
-    text-wrap: nowpar;
+    white-space: nowrap;
     transition: 0.3s ease-in-out;
 }
 .logo.hover{
@@ -139,7 +140,7 @@ section{
     font-weight: 500;
     text-wrap: nowrap;
     transition: 0.2s ease-in-out;
-    color: black; 
+    color: black;
 
 }
 .btn:hover{
@@ -519,10 +520,10 @@ footer ul li a{
         display: flex;
     }
     header{
-        width: auto;  
-        max-width: 90%;
+        width: auto; 
+        max-width: 90%; 
         gap: 2rem; 
-        padding: 0.5rem 1rem; 
+        padding: 0.5rem 1rem;
     }
     header .logo{
         font-size: 1.5rem;
