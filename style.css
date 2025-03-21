@@ -7,6 +7,10 @@
     scroll-behavior: smooth;
     list-style: none;
 }
+section:first-of-type {
+    background-color: #070707;
+    color: white;
+}
 
 header{
 position: fixed;
@@ -135,17 +139,17 @@ section{
 .btn {
     border-radius: 3rem;
     padding: 0.5rem 1.5rem;
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
     cursor: pointer;
     font-weight: 500;
     text-wrap: nowrap;
     transition: 0.2s ease-in-out;
-    color: black;
+    color: rgb(255, 255, 255); 
 
 }
 .btn:hover{
-    background-color: black;
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 .socials{
     display: flex;
@@ -155,7 +159,7 @@ section{
     font-size: 2.5rem;
     cursor: pointer;
     transition: 0.2 ease-in-out;
-    color: black
+    color: rgb(255, 255, 255)
 }
 .socials i:hover{
     transform: scale(1.1);
@@ -186,10 +190,12 @@ section{
     display: flex;
     align-items: center;
     gap: 1rem;
+    font-weight: 600;
 }
 
 .heading i{
     font-size: 4rem;
+    font-weight: 600;
 }
 
 .content-box{
@@ -229,7 +235,7 @@ section{
 
 .date{
     font-size: 1.7rem;
-    font-weight: 700;
+    font-weight: 600;
 
 }
 .content-box::before{
@@ -525,7 +531,7 @@ footer ul li a{
     header{
         width: auto; 
         max-width: 90%; 
-        gap: 2rem; 
+        gap: 2rem;  
         padding: 0.5rem 1rem;
     }
     header .logo{
