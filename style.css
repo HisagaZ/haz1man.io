@@ -131,12 +131,12 @@ section{
     color: transparent;
     font-size: 2rem;
 }
-.btn-group{
+.btn-group-main{
     display: flex;
     gap: 1rem;
 
 }
-.btn {
+.btn-main {
     border-radius: 3rem;
     padding: 0.5rem 1.5rem;
     border: 2px solid rgb(255, 255, 255);
@@ -145,6 +145,26 @@ section{
     text-wrap: nowrap;
     transition: 0.2s ease-in-out;
     color: rgb(255, 255, 255); 
+
+}
+.btn-main:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+.btn-group{
+    display: flex;
+    gap: 1rem;
+
+}
+.btn {
+    border-radius: 3rem;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid rgb(0, 0, 0);
+    cursor: pointer;
+    font-weight: 500;
+    text-wrap: nowrap;
+    transition: 0.2s ease-in-out;
+    color: rgb(0, 0, 0); 
 
 }
 .btn:hover{
