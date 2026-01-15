@@ -8,7 +8,7 @@
     list-style: none;
 }
 section:first-of-type {
-    background-color: #070707;
+    background: linear-gradient(135deg, rgb(0, 0, 134),rgb(0, 0, 0));
     color: white;
 }
 
@@ -57,7 +57,7 @@ li a::before {
     width: 0;
     height: 3px; 
     border-radius: 1rem;
-    background: linear-gradient(to right, rgb(0, 157, 255), rgb(255, 0, 255));
+    background: linear-gradient(to right, rgb(0, 157, 255), rgb(0, 0, 134));
     transition: width 0.3s ease-in-out;
 }
 
@@ -74,10 +74,10 @@ li a:hover::before {
     cursor: pointer;
     text-wrap: nowrap;
     transition: 0.3s ease-in-out;
-    background: linear-gradient(to right,rgb(0,157,255), rgb(255,0,255));
+    background: linear-gradient(to right,rgb(0,157,255), rgb(0, 0, 134));
 }
 .visit-btn:hover{
-    background: linear-gradient(to right,rgb(255,0,255), rgb(0,157,255));
+    background: linear-gradient(to right,rgb(0, 0, 134), rgb(0,157,255));
     transform: scale(1.03);
 
 }
@@ -126,7 +126,7 @@ section{
     font-weight: 600;
 }
 .info-box span{
-    background: linear-gradient(to right,rgb(255,0,255), rgb(0,157,255));
+    background: linear-gradient(to right,rgb(0, 0, 134), rgb(0,157,255));
     background-clip: text;
     color: transparent;
     font-size: 2rem;
@@ -248,7 +248,7 @@ section{
 }
 .content-box h3{
     font-size: 1.3rem;
-    background: linear-gradient(to right,rgb(255,0,255), rgb(0,157,255));
+    background: linear-gradient(to right,rgb(0, 0, 134), rgb(0,157,255));
     background-clip: text;
     color: transparent;
 }
@@ -279,11 +279,32 @@ section{
     margin-bottom: 3rem;
 
 }
-.experience-info{
+.about1-title{
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
+
+}
+.about-info{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5rem;
+
+}
+.about1 img {
+    width: 34vw;
+    display: block;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.experience-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
 
 }
 .experience img{
@@ -321,9 +342,9 @@ section{
 
 }
 .grid-card span{
-    font-size: 1.5 rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    background: linear-gradient(to right,rgb(255,0,255), rgb(0,157,255));
+    background: linear-gradient(to right,rgb(0, 0, 134), rgb(0,157,255));
     background-clip: text;
     color: transparent;
 
@@ -337,7 +358,7 @@ section{
 
 }
 ::-webkit-scrollbar-thumb{
-    background: linear-gradient(to bottom,rgb(255,0,255), rgb(0,157,255));
+    background: linear-gradient(to bottom,rgb(0, 0, 134), rgb(0,157,255));
 
 }
 .projects-info{
@@ -423,6 +444,14 @@ section{
     top: 50%;
     left: 10px;
     transform: translate(50%,-50%);
+
+}
+
+.references-title {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 400;
+
 
 }
 
