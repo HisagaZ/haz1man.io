@@ -601,3 +601,149 @@ footer ul li a{
         gap: 1rem;
     }
 }
+
+@media (max-width: 768px) {
+    .artwork-collage {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem;
+    }
+
+    .artwork-overlay {
+        padding: 0 8%;
+    }
+
+    .artwork-desc {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .artwork-collage {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .artwork-collage {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .artwork-desc {
+        font-size: 1.1rem;
+    }
+}
+
+
+
+
+
+/* =========================
+   ARTWORK COLLAGE – PROJECT CARD HOVER
+========================= */
+
+.artwork-section {
+    min-height: 100vh;
+    padding: 6rem 12%;
+}
+
+/* Grid layout */
+.artwork-collage {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+/* Artwork card */
+.artwork-item {
+    aspect-ratio: 4 / 5;
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    background-color: white;
+    position: relative;
+}
+
+/* Image starts slightly zoomed */
+.artwork-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(0, 0);
+    transition: transform 0.2s ease-out;
+}
+
+/* Card hover (same as projects-card) */
+.artwork-item:hover {
+    background-color: black;
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Dim effect on hover */
+.artwork-item:hover img {
+    opacity: 0.85;
+}
+
+/* Text section */
+.artwork-text {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.artwork-desc {
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+/* Button matches site style */
+.artwork-btn {
+    padding: 0.9rem 2.5rem;
+    border-radius: 3rem;
+    border: 2px solid black;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+}
+
+.artwork-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+/* =========================
+   RESPONSIVE GRID BEHAVIOR
+========================= */
+
+/* Tablets - 3 columns */
+@media (max-width: 1024px) {
+    .artwork-collage {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile landscape - 2 columns */
+@media (max-width: 768px) {
+    .artwork-collage {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem;
+    }
+    .artwork-desc {
+        font-size: 1.1rem;
+    }
+}
+
+/* Small phones - 1 column */
+@media (max-width: 480px) {
+    .artwork-collage {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .artwork-item {
+        aspect-ratio: 4 / 5; /* Ensure consistent ratio on small screens */
+    }
+}
