@@ -116,7 +116,7 @@ section {
 }
 
 .about img {
-    width: 30vw;
+    width: clamp(250px, 30vw, 400px);
     border-radius: 50%;
 }
 
@@ -130,13 +130,13 @@ section {
 }
 
 .info-box h1 {
-    font-size: 1.8rem;
+    font-size: clamp(1rem, 4vw, 1.8rem);
     font-weight: 400;
 
 }
 
 .info-box h3 {
-    font-size: 4rem;
+    font-size: clamp(2rem, 8vw, 4rem);
     font-weight: 600;
 }
 
@@ -144,7 +144,7 @@ section {
     background: linear-gradient(to right, rgb(0, 0, 134), rgb(0, 157, 255));
     background-clip: text;
     color: transparent;
-    font-size: 2rem;
+    font-size: clamp(1rem, 4vw, 2rem);
 }
 
 .btn-group-main {
@@ -173,7 +173,8 @@ section {
 .btn-group {
     display: flex;
     gap: 1rem;
-
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .btn {
@@ -207,19 +208,14 @@ section {
 
 .socials i:hover {
     transform: scale(1.1);
-
-
 }
 
-
-
-
 .timeline-wrapper {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 12% 2rem;
+    padding: 2rem 5% 2rem;
 }
 
 .timeline-row {
@@ -301,18 +297,18 @@ section {
 
 .section-title {
     text-align: center;
-    font-size: 4rem;
+    font-size: clamp(1.8rem, 6vw, 4rem);
     font-weight: 600;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 
 }
 
 .about1-title {
     text-align: center;
-    font-size: 1.3rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.3rem);
     font-weight: 400;
-    margin-bottom: 3rem;
-
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
 .about-info {
@@ -438,7 +434,7 @@ section {
 }
 
 .projects-card img {
-    width: 20vw;
+    width: clamp(250px, 30vw, 400px);
     border-radius: 2rem;
 }
 
@@ -456,7 +452,7 @@ section {
 }
 
 .projects-card h3 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2rem);
     font-weight: 500;
 }
 
@@ -521,7 +517,9 @@ footer {
 footer ul {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 footer ul li a {
@@ -603,12 +601,13 @@ footer ul li a {
     }
 
     .grid {
-        grid-template-columns: repeat(1, 1fr);
-
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .experience-info img {
-        width: 70vw;
+        width: 90vw;
+        max-width: 400px;
     }
 
 }
@@ -634,8 +633,8 @@ footer ul li a {
     }
 
     .nav-links li {
-        margin-top: 1.5rem;
-        padding: 1rem;
+        margin-top: 1rem;
+        padding: 0.5rem;
     }
 
     .nav-links.active {
@@ -643,10 +642,16 @@ footer ul li a {
     }
 
     header {
-        width: auto;
-        max-width: 90%;
+        width: 100%;
+        max-width: 100%;
         gap: 2rem;
         padding: 0.5rem 1rem;
+        border-radius: 0;
+        top: 0;
+    }
+
+    section {
+        padding: 4rem 5%;
     }
 
     header .logo {
@@ -835,14 +840,32 @@ footer ul li a {
     color: black;
 }
 
+/* RESPONSIVE PROJECTS SECTION */
+@media (max-width: 768px) {
+    .projects-card {
+        padding: 2rem 1rem;
+    }
+
+    .projects-card img {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
     .project-grid {
         grid-template-columns: 1fr;
     }
 
     .project-card {
-        height: 350px;
+        height: 300px;
     }
 }
 
@@ -853,6 +876,10 @@ footer ul li a {
 @media (max-width: 1024px) {
     .artwork-collage {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .timeline-row {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -878,5 +905,44 @@ footer ul li a {
 
     .artwork-item {
         aspect-ratio: 4 / 5;
+    }
+
+    /* Smallest screen refinements */
+    section {
+        padding: 3rem 1rem;
+    }
+
+    .btn,
+    .btn-main,
+    .visit-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .grid-card,
+    .projects-card,
+    .content-box {
+        padding: 1.5rem 1rem;
+    }
+
+    .input-box input {
+        padding: 0.5rem 1rem;
+        width: 100%;
+        max-width: 100%;
+        font-size: 1.2rem;
+    }
+
+    .input-box input::placeholder {
+        font-size: 1.2rem;
+    }
+
+    .about-info,
+    .projects-info {
+        gap: 2rem;
+    }
+
+    footer {
+        padding: 2rem 1rem;
+        height: auto;
     }
 }
