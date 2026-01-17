@@ -27,5 +27,3 @@ artworkItems.forEach(item => {
 });
 
 
-
-

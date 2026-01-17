@@ -9,8 +9,11 @@
 }
 
 section:first-of-type {
-    background: linear-gradient(135deg, rgb(0, 0, 134), rgb(0, 0, 0));
+    /* Premium Black Blue Gradient */
+    background: radial-gradient(circle at center, #0a192f, #000000 100%);
     color: white;
+    overflow: hidden;
+    /* Ensure carousel doesn't overflow */
 }
 
 header {
@@ -106,6 +109,8 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    /* For absolute carousel */
 }
 
 .about .about-container {
@@ -113,12 +118,12 @@ section {
     align-items: center;
     justify-content: center;
     gap: 10rem;
+    position: relative;
+    z-index: 10;
+    /* Bring content to front */
 }
 
-.about img {
-    width: clamp(250px, 30vw, 400px);
-    border-radius: 50%;
-}
+/* Removed .about img style as profile pic is moved */
 
 .info-box {
     display: flex;
@@ -127,6 +132,13 @@ section {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
+    /* Glassmorphism Cover */
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .info-box h1 {
@@ -141,10 +153,13 @@ section {
 }
 
 .info-box span {
-    background: linear-gradient(to right, rgb(0, 0, 134), rgb(0, 157, 255));
+    background: linear-gradient(to right, #00f2fe, #4facfe);
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
     font-size: clamp(1rem, 4vw, 2rem);
+    /* High contrast text shadow for readability on all backgrounds */
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
 }
 
 .btn-group-main {
@@ -270,9 +285,12 @@ section {
 
 .content-box h3 {
     font-size: 1.3rem;
-    background: linear-gradient(to right, rgb(0, 0, 134), rgb(0, 157, 255));
+    background: linear-gradient(to right, #00f2fe, #4facfe);
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
+    font-weight: 600;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
 }
 
 .date {
@@ -295,12 +313,34 @@ section {
 
 
 
+.about1 {
+    /* Smooth transition: Black -> Dark Blue -> White (at the very tip) */
+    background: linear-gradient(to bottom, #000000, #0a192f 85%, #ffffff 100%);
+    color: white;
+    padding-bottom: 4rem;
+    /* Ensure space for gradient */
+}
+
+.about1 .grid-card {
+    border: 2px solid white;
+    /* Invert border for visibility */
+}
+
+.about1 .grid-card span {
+    /* Maintain gradient text but ensure it pops */
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.about1 .grid-card:hover {
+    background-color: white;
+    color: black;
+}
+
 .section-title {
     text-align: center;
     font-size: clamp(1.8rem, 6vw, 4rem);
     font-weight: 600;
     margin-bottom: 2rem;
-
 }
 
 .about1-title {
@@ -309,6 +349,8 @@ section {
     font-weight: 400;
     margin-bottom: 2rem;
     line-height: 1.6;
+    color: #e0e0e0;
+    /* Slightly off-white for reading */
 }
 
 .about-info {
@@ -376,9 +418,11 @@ section {
 .grid-card span {
     font-size: 1.5rem;
     font-weight: 600;
-    background: linear-gradient(to right, rgb(0, 0, 134), rgb(0, 157, 255));
+    background: linear-gradient(to right, #00f2fe, #4facfe);
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2));
 
 }
 
@@ -434,7 +478,10 @@ section {
 }
 
 .projects-card img {
-    width: clamp(250px, 30vw, 400px);
+    /* Use 100% to ensure it stays inside the card padding */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
     border-radius: 2rem;
 }
 
@@ -690,6 +737,8 @@ footer ul li a {
 .artwork-section {
     min-height: 100vh;
     padding: 6rem 12%;
+    /* Smooth transition to Project Section (#070707) - only 2% tip */
+    background: linear-gradient(to bottom, #ffffff 98%, #070707 100%);
 }
 
 /* Grid layout */
@@ -944,5 +993,124 @@ footer ul li a {
     footer {
         padding: 2rem 1rem;
         height: auto;
+    }
+}
+
+/* =========================
+   CAROUSEL BACKGROUND & PROFILE
+========================= */
+.carousel-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centered with gap */
+    gap: 5vh;
+    /* Explicit spacing between layers */
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0.75;
+    pointer-events: none;
+    transform: scale(1.1) rotate(-5deg);
+    /* Slightly reduced scale */
+}
+
+.carousel-row {
+    display: flex;
+    width: 100%;
+    /* gap: 0; Ensure no double gap, spacing handled by padding-right in group-row */
+}
+
+.group-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    /* Important: The translateX must be exactly the width of the group including the gap.
+       Since we have gap: 2rem, we need to ensure the animation covers it.
+       The easiest way for seamless loop with gap is to NOT use padding on the group.
+       Instead, the gap between the last item of group 1 and first item of group 2 is handled by flex layout of parent?
+       No, the parent has no gap.
+       So we need a gap after the last item!
+    */
+    padding-right: 2rem;
+    /* Add gap at end of group so group1 + group2 matches */
+    animation: spin 30s linear infinite;
+    /* Faster speed for smoother flow */
+    will-change: transform;
+}
+
+.carousel-row.reverse .group-row {
+    animation: spin-reverse 35s linear infinite;
+}
+
+.card-row {
+    /* Use VH to ensure 3 rows fit vertically regardless of width */
+    height: 25vh;
+    aspect-ratio: 4/5;
+    flex: 0 0 auto;
+    /* Don't shrink/grow */
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.card-row img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes spin {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes spin-reverse {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.about1-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.about-profile-pic {
+    width: clamp(200px, 20vw, 300px);
+    aspect-ratio: 1/1;
+    /* Ensure perfect circle */
+    height: auto;
+    /* Allow width to control size */
+    border-radius: 50%;
+    object-fit: cover;
+    /* Removed border: 4px solid black; */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .carousel-bg {
+        transform: scale(1.2) rotate(-5deg);
+        /* Slightly more zoom on mobile to fill gaps */
+        gap: 3vh;
+    }
+
+    .card-row {
+        height: 20vh;
+        /* Slightly smaller on mobile to ensure header visibility */
+        border-radius: 0.5rem;
     }
 }
